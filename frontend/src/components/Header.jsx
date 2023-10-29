@@ -38,7 +38,7 @@ const Header = () => {
       >
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>Foxify</Navbar.Brand>
+            <Navbar.Brand className="fs-4">FOXIFY</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
           <Navbar.Collapse>

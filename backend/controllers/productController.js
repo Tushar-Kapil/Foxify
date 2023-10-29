@@ -2,7 +2,7 @@ import asyncHandler from "../middlewares/asyncHandler.js";
 import Product from "../models/productModel.js";
 
 const getProducts = asyncHandler(async (req, res) => {
-  const pageSize = 10;
+  const pageSize = 5;
   const page = Number(req.query.pageNumber) || 1;
 
   const keyword = req.query.keyword
@@ -106,11 +106,26 @@ const updateProduct = asyncHandler(async (req, res) => {
 
     const updatedProduct = await product.save();
 
+    console.log(updatedProduct);
     res.json(updatedProduct);
   } else {
     res.status(404);
     throw new Error("Resource not found");
   }
+});
+
+const deleteProduct = asyncHandler(async (req, res) => {
+  const product = await Product.findById(req.params.id);
+
+  if (product) {
+    await Product.deleteOne({ _id: product._id });
+    res.status(200).json({ message: "Product Deleted" });
+  } else {
+    res.status(404);
+    throw new Error("Resource not found");
+  }
+
+  res.status(200).json(products);
 });
 
 export {
@@ -120,4 +135,5 @@ export {
   getTopProducts,
   createProduct,
   updateProduct,
+  deleteProduct,
 };

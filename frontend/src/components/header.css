@@ -3,3 +3,8 @@
   top: 0;
   z-index: 100;
 }
+
+.navbar {
+  background-color: #707072;
+  color: red;
+}

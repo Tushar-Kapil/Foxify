@@ -6,14 +6,17 @@ import "./product.css";
 
 const Product = ({ product }) => {
   return (
-    <Card className="my-3 p-3 rounded shadow-sm p-3 mb-5 bg-white rounded card-hover">
+    <Card className="my-3 p-3 rounded shadow-md p-3 mb-5 bg-white rounded card-hover card">
       <Link to={`/product/${product._id}`}>
         <Card.Img src={product.image} variant="top"></Card.Img>
       </Link>
       <Card.Body>
-        <Link to={`/product/${product._id}`}>
+        <Link to={`/product/${product._id}`} style={{ textDecoration: "none" }}>
           <Card.Title as="div">
-            <strong>{product.name}</strong>
+            <strong className="product-title">{product.name}</strong>
+          </Card.Title>
+          <Card.Title as="div">
+            <p className="product-category">{product.category}</p>
           </Card.Title>
         </Link>
 
@@ -23,7 +26,9 @@ const Product = ({ product }) => {
             text={`${product.numReviews} reviews`}
           />
         </Card.Text>
-        <Card.Text as="h3">${product.price}</Card.Text>
+        <Card.Text as="h3" style={{ marginTop: "5px", fontSize: "20px" }}>
+          MRP: ${product.price}
+        </Card.Text>
       </Card.Body>
     </Card>
   );

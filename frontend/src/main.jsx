@@ -25,7 +25,10 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import OrderList from "./pages/admin/OrderList.jsx";
 import ProductList from "./pages/admin/ProductList.jsx";
 import ProductEdit from "./pages/admin/ProductEdit.jsx";
+import UsersList from "./pages/admin/UsersList.jsx";
+import UserEdit from "./pages/admin/UserEdit.jsx";
 import AdminRoute from "./components/admin/AdminRoute.jsx";
+import "./main.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -53,7 +56,13 @@ const router = createBrowserRouter(
       <Route path="" element={<AdminRoute />}>
         <Route path="/admin/orderlist" element={<OrderList />}></Route>
         <Route path="/admin/productlist" element={<ProductList />}></Route>
+        <Route
+          path="/admin/productlist/:pageNumber"
+          element={<ProductList />}
+        ></Route>
         <Route path="/admin/product/:id/edit" element={<ProductEdit />}></Route>
+        <Route path="/admin/userlist" element={<UsersList />}></Route>
+        <Route path="/admin/user/:id/edit" element={<UserEdit />}></Route>
       </Route>
     </Route>
   )

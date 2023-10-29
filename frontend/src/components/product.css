@@ -1,8 +1,30 @@
 .card-hover {
-  transition: transform 0.2s;
+  transition: transform 0.5s;
 }
 
 .card-hover:hover {
   transform: scale(1.04);
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.product-title {
+  color: black;
+  font-size: 18px;
+}
+
+.product-title:hover {
+  text-decoration: underline;
+}
+
+.product-category {
+  color: #707072;
+  font-size: 16spx;
+}
+
+.card {
+  border: none;
+}
+
+.card:hover {
+  border: 0.5px solid #707072;
 }
